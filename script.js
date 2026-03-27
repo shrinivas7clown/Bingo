@@ -18,7 +18,7 @@ let songs = [
   "songs/Rihanna_SM.mp3",
   "songs/SayYesToHeaven.mp3",
   "songs/Timeless.mp3",
-  "songs/TravisScott_MYEYES.mp3",
+  "songs/MyEyes.mp3",
   "songs/Young_and_Beautiful.mp3"
 ];
 
