@@ -1,0 +1,125 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #111;
+  color: white;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+input, textarea, button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+}
+
+textarea {
+  width: 300px;
+  height: 80px;
+}
+
+button {
+  background: #00c3ff;
+  color: black;
+  cursor: pointer;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(5, 70px);
+  gap: 8px;
+  justify-content: center;
+  margin: 20px;
+}
+
+/* CELLS */
+#board div {
+  width: 70px;
+  height: 70px;
+  background: #222;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+#board div:hover {
+  background: #333;
+}
+
+.marked {
+  background: lime !important;
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
+
+/* STRIKE BASE */
+.cell {
+  position: relative;
+}
+
+/* HORIZONTAL STRIKE */
+.strike-row::after {
+  content: "";
+  position: absolute;
+  width: 110%;
+  height: 5px;
+  background: red;
+  top: 50%;
+  left: -5%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* VERTICAL STRIKE */
+.strike-col::after {
+  content: "";
+  position: absolute;
+  height: 110%;
+  width: 5px;
+  background: red;
+  left: 50%;
+  top: -5%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* DIAGONAL ↘ */
+.strike-diag1::after {
+  content: "";
+  position: absolute;
+  width: 160%;
+  height: 5px;
+  background: red;
+  top: 50%;
+  left: -30%;
+  transform: translateY(-50%) rotate(45deg);
+  z-index: 2;
+}
+
+/* DIAGONAL ↙ */
+.strike-diag2::after {
+  content: "";
+  position: absolute;
+  width: 160%;
+  height: 5px;
+  background: red;
+  top: 50%;
+  left: -30%;
+  transform: translateY(-50%) rotate(-45deg);
+  z-index: 2;
+}

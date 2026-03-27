@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bingo Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🎮 Bingo Game</h1>
+
+  <input id="name" placeholder="Your Name">
+  <input id="room" placeholder="Room ID">
+
+  <button onclick="joinRoom()">Join Room</button>
+
+  <!-- LOBBY -->
+  <div id="lobby" style="display:none;">
+    <h3>Players:</h3>
+    <ul id="players"></ul>
+
+    <button id="startBtn" onclick="startGame()" style="display:none;">
+      Start Game
+    </button>
+
+    <h3 id="status">Waiting for players...</h3>
+  </div>
+
+  <!-- CUSTOM BOARD -->
+  <h3>Custom Board (optional)</h3>
+  <textarea id="customInput" placeholder="Enter 25 numbers (1–25) separated by commas"></textarea>
+  <br>
+  <button onclick="useCustomBoard()">Use Custom Board</button>
+
+  <!-- GAME -->
+  <div id="game" class="hidden">
+
+    <h2 id="turnText">Waiting...</h2>
+
+    <h2 id="number">---</h2>
+
+    <div id="board"></div>
+
+    <button id="myBtn" onclick="sendNumber()" disabled>My Number</button>
+    <button onclick="checkBingo()">BINGO</button>
+
+    <h2 id="winner"></h2>
+
+    <!-- 🎵 MUSIC PLAYER -->
+    <div id="music">
+      <h3>🎵 Music Player</h3>
+
+      <ul id="songList"></ul>
+
+      <div>
+        <button onclick="playSong()">▶ Play</button>
+        <button onclick="pauseSong()">⏸ Pause</button>
+        <button onclick="nextSong()">⏭ Next</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
