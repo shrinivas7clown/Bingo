@@ -10,8 +10,16 @@ let gameStarted = false;
 
 let songs = [
   "songs/SUICIDAL_IDOL_ecstacy.mp3",
-  "songs/song2.mp3",
-  "songs/song3.mp3"
+  "songs/RihannaOnlyGirl.mp3",
+  "songs/Cinnamon_Girl.mp3",
+  "songs/FEIN.mp3",
+  "songs/GoldenBrown.mp3",
+  "songs/Popular.mp3",
+  "songs/Rihanna_SM.mp3",
+  "songs/SayYesToHeaven.mp3",
+  "songs/Timeless.mp3",
+  "songs/TravisScott_MYEYES.mp3",
+  "songs/Young_and_Beautiful.mp3"
 ];
 
 let currentSongIndex = 0;
