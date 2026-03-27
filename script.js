@@ -37,6 +37,11 @@ function loadSongs() {
 
     li.innerText = song.split("/").pop();
 
+    // 🔥 Highlight current song
+    if (index === currentSongIndex) {
+      li.classList.add("active");
+    }
+
     li.onclick = () => {
       currentSongIndex = index;
       sendMusicAction("play", index);
@@ -77,10 +82,12 @@ socket.on("musicAction", ({ action, songIndex }) => {
   if (songIndex !== undefined) {
     currentSongIndex = songIndex;
     audio.src = songs[currentSongIndex];
+
+    loadSongs(); // 🔥 refresh UI highlight
   }
 
   if (action === "play") {
-    audio.play().catch(() => {}); // 🔥 prevent autoplay error
+    audio.play().catch(() => {});
   }
 
   if (action === "pause") {

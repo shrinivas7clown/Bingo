@@ -131,11 +131,49 @@ button {
 }
 
 /* LEFT MUSIC */
+/* LEFT MUSIC */
 #music {
-  width: 200px;
+  width: 270px; /* increased width */
   background: #1a1a1a;
   padding: 15px;
   border-radius: 12px;
+}
+
+/* SONG LIST */
+#songList {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+/* EACH SONG */
+#songList li {
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #222;
+  border-radius: 10px;
+  cursor: pointer;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  transition: all 0.2s ease;
+}
+
+/* HOVER */
+#songList li:hover {
+  background: #333;
+  transform: scale(1.03); /* slight zoom */
+}
+
+/* ACTIVE SONG */
+#songList li.active {
+  background: #00c3ff;
+  color: black;
+  font-weight: bold;
 }
 
 /* RIGHT SIDE */
