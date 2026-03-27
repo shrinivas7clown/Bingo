@@ -123,3 +123,62 @@ button {
   transform: translateY(-50%) rotate(-45deg);
   z-index: 2;
 }
+
+.layout {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* LEFT MUSIC */
+#music {
+  width: 200px;
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* RIGHT SIDE */
+#rightSide {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* GAME AREA */
+#gameArea {
+  text-align: center;
+}
+
+/* CHAT */
+#chatBox {
+  width: 350px;
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#messages {
+  height: 200px;
+  overflow-y: auto;
+  background: #000;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+#chatInput {
+  display: flex;
+  margin-top: 10px;
+}
+
+#chatInput input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+#chatInput button {
+  margin-left: 5px;
+}

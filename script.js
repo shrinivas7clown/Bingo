@@ -46,7 +46,7 @@ function loadSongs() {
   });
 }
 
-// Send music action to server
+// Send music action
 function sendMusicAction(action, index = currentSongIndex) {
   const room = document.getElementById("room").value;
 
@@ -71,7 +71,7 @@ function nextSong() {
   sendMusicAction("play", currentSongIndex);
 }
 
-// Receive synced music
+// Receive music
 socket.on("musicAction", ({ action, songIndex }) => {
 
   if (songIndex !== undefined) {
@@ -80,7 +80,7 @@ socket.on("musicAction", ({ action, songIndex }) => {
   }
 
   if (action === "play") {
-    audio.play();
+    audio.play().catch(() => {}); // 🔥 prevent autoplay error
   }
 
   if (action === "pause") {
@@ -100,7 +100,7 @@ function joinRoom() {
   document.getElementById("lobby").style.display = "block";
   document.getElementById("status").innerText = "Waiting for players...";
 
-  loadSongs(); // 🔥 load music list
+  loadSongs();
 }
 
 // CREATE BOARD
@@ -285,4 +285,32 @@ socket.on("winner", (name) => {
 // ERROR
 socket.on("errorMsg", (msg) => {
   alert(msg);
+});
+
+/* ================= CHAT SYSTEM (NEW 🔥) ================= */
+
+function sendMessage() {
+  const msg = document.getElementById("msgInput").value;
+  const room = document.getElementById("room").value;
+  const name = document.getElementById("name").value;
+
+  if (!msg) return;
+
+  socket.emit("chatMessage", { roomId: room, name, msg });
+
+  document.getElementById("msgInput").value = "";
+}
+
+// Receive chat
+socket.on("chatMessage", ({ name, msg }) => {
+  const messages = document.getElementById("messages");
+
+  let p = document.createElement("p");
+  p.innerHTML = `<strong>${name}:</strong> ${msg}`;
+
+  // ✅ ADD THIS LINE HERE
+  p.style.color = name === document.getElementById("name").value ? "lime" : "white";
+
+  messages.appendChild(p);
+  messages.scrollTop = messages.scrollHeight;
 });

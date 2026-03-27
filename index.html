@@ -26,37 +26,54 @@
     <h3 id="status">Waiting for players...</h3>
   </div>
 
-  <!-- CUSTOM BOARD -->
-  <h3>Custom Board (optional)</h3>
-  <textarea id="customInput" placeholder="Enter 25 numbers (1–25) separated by commas"></textarea>
-  <br>
-  <button onclick="useCustomBoard()">Use Custom Board</button>
-
   <!-- GAME -->
   <div id="game" class="hidden">
 
-    <h2 id="turnText">Waiting...</h2>
+    <div class="layout">
 
-    <h2 id="number">---</h2>
+      <!-- LEFT: MUSIC -->
+      <div id="music">
+        <h3>🎵 Music</h3>
 
-    <div id="board"></div>
+        <ul id="songList"></ul>
 
-    <button id="myBtn" onclick="sendNumber()" disabled>My Number</button>
-    <button onclick="checkBingo()">BINGO</button>
-
-    <h2 id="winner"></h2>
-
-    <!-- 🎵 MUSIC PLAYER -->
-    <div id="music">
-      <h3>🎵 Music Player</h3>
-
-      <ul id="songList"></ul>
-
-      <div>
-        <button onclick="playSong()">▶ Play</button>
-        <button onclick="pauseSong()">⏸ Pause</button>
-        <button onclick="nextSong()">⏭ Next</button>
+        <div>
+          <button onclick="playSong()">▶</button>
+          <button onclick="pauseSong()">⏸</button>
+          <button onclick="nextSong()">⏭</button>
+        </div>
       </div>
+
+      <!-- RIGHT: GAME + CHAT -->
+      <div id="rightSide">
+
+        <!-- GAME -->
+        <div id="gameArea">
+          <h2 id="turnText">Waiting...</h2>
+          <h2 id="number">---</h2>
+
+          <div id="board"></div>
+
+          <button id="myBtn" onclick="sendNumber()" disabled>My Number</button>
+          <button onclick="checkBingo()">BINGO</button>
+
+          <h2 id="winner"></h2>
+        </div>
+
+        <!-- CHAT -->
+        <div id="chatBox">
+          <h3>💬 Chat</h3>
+
+          <div id="messages"></div>
+
+          <div id="chatInput">
+            <input id="msgInput" placeholder="Type message..." />
+            <button onclick="sendMessage()">Send</button>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
   </div>

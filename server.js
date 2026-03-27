@@ -90,6 +90,11 @@ io.on("connection", (socket) => {
     io.to(roomId).emit("musicAction", { action, songIndex });
   });
 
+  // 💬 CHAT SYSTEM (NEW 🔥)
+socket.on("chatMessage", ({ roomId, name, msg }) => {
+  io.to(roomId).emit("chatMessage", { name, msg });
+});
+
   // BINGO
   socket.on("bingo", ({ roomId, name }) => {
     let room = rooms[roomId];
