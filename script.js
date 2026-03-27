@@ -9,7 +9,7 @@ let gameStarted = false;
 /* ================= MUSIC SYSTEM ================= */
 
 let songs = [
-  "songs/SUICIDAL-IDOL - ecstacy.mp3",
+  "songs/SUICIDAL_IDOL_ecstacy.mp3",
   "songs/song2.mp3",
   "songs/song3.mp3"
 ];
